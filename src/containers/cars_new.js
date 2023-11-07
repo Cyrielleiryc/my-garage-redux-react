@@ -30,7 +30,7 @@ function CarsNew(props) {
         <Field label="Model" name="model" type="text" component={renderField} />
         <Field label="Owner" name="owner" type="text" component={renderField} />
         <Field label="Plate" name="plate" type="text" component={renderField} />
-        <button className="btn btn-primary" type="submit" disabled={props.pristine || props.submitting}>
+        <button type="submit" disabled={props.pristine || props.submitting}>
           Create car
         </button>
       </form>
