@@ -1,11 +1,5 @@
 export const FETCH_CARS = 'FETCH_CARS'
-
-// const testcars = [
-//   { id: 1, brand: 'Peugeot', model: '106', owner: 'John', plate: 'WOB-ED-42' },
-//   { id: 2, brand: 'Renault', model: 'Scenic', owner: 'Paul', plate: 'AAA-12-BC' },
-//   { id: 3, brand: 'Aston Martin', model: 'DB Mark III', owner: 'James', plate: '418-ED-94' },
-//   { id: 4, brand: 'VW', model: 'Beetle', owner: 'George', plate: '1234-XD-75' }
-// ]
+export const CAR_CREATED = 'CAR_CREATED'
 
 const BASE_URL = 'https://wagon-garage-api.herokuapp.com/'
 
@@ -16,5 +10,18 @@ export function fetchCars(garage) {
   return {
     type: FETCH_CARS,
     payload: promise
+  }
+}
+
+export function createCar(garage, body, callback) {
+  const request = fetch(BASE_URL + garage + '/cars', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(body)
+  }).then(response => response.json()).then(callback)
+
+  return {
+    type: CAR_CREATED,
+    payload: request
   }
 }
