@@ -14,16 +14,16 @@ import CarsIndex from './containers/cars_index.js';
 
 // reducers
 import carsReducer from './reducers/cars_reducer';
-import garageReducer from './reducers/garage_reducer';
+// import garageReducer from './reducers/garage_reducer';
 
-// const garageName = prompt("What is your garage?") || `garage${Math.floor(10 + (Math.random() * 90))}`;
+const garageName = prompt("What is your garage?") || `garage${Math.floor(10 + (Math.random() * 90))}`;
 const initialState = {
-  garage: "myGarage",
+  garage: garageName,
   cars: []
 };
 
 const reducers = combineReducers({
-  garage: garageReducer, // (state = null, action) => state,
+  garage: (state = null, action) => state,
   cars: carsReducer
 });
 

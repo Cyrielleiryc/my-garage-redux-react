@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+// composants
+import Aside from '../components/aside'
+
 // images locales
 import logo_square from '../assets/images/logo_square.svg'
 
@@ -16,9 +19,7 @@ class CarsIndex extends Component {
   render() {
     return (
       <div className="view-container">
-        <div className="aside">
-          <h1>Hello</h1>
-        </div>
+        <Aside key="aside" garage={this.props.garage} />
         <div className="list-container" key="cars">
           {this.props.cars.map((car) => (
             <div key={car.id} className="car-smallad">
@@ -39,7 +40,8 @@ class CarsIndex extends Component {
 
 function mapStateToProps(state) {
   return {
-    cars: state.cars
+    cars: state.cars,
+    garage: state.garage
   }
 }
 
