@@ -5,12 +5,12 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import reduxPromise from 'redux-promise';
 import logger from 'redux-logger';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { createBrowserHistory as history } from 'history';
+import { createHashHistory as history } from 'history';
 
 import './assets/stylesheets/application.css';
 
 // components and containers
-import CarsIndex from './containers/cars_index';
+import CarsIndex from './containers/cars_index.js';
 
 // reducers
 import carsReducer from './reducers/cars_reducer';
@@ -45,13 +45,13 @@ const store = createStore(reducers, initialState, middlewares);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-    <Provider store={store}>
-      <Router history={history}>
+    <Router history={history}>
+      <Provider store={store}>
         <Routes>
-          <Route path="/" exact component={CarsIndex} />
+          <Route path="/" exact element={<CarsIndex />} />
         </Routes>
-      </Router>
-    </Provider>
+      </Provider>
+    </Router>
   // </React.StrictMode>
 );
 
