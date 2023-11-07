@@ -13,7 +13,7 @@ import { fetchCars } from '../actions';
 
 class CarsIndex extends Component {
   componentDidMount() {
-    this.props.fetchCars()
+    this.props.fetchCars(this.props.garage)
   }
 
   render() {
