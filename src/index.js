@@ -13,6 +13,7 @@ import './assets/stylesheets/application.css';
 // components and containers
 import CarsIndex from './containers/cars_index.js';
 import CarsNew from './containers/cars_new.js';
+import CarsShow from './containers/cars_show.js';
 
 // reducers
 import carsReducer from './reducers/cars_reducer';
@@ -36,10 +37,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router history={history}>
     <Provider store={store}>
-      <Routes>
-        <Route path="/" exact element={<CarsIndex />} />
-        <Route path="/cars/new" exact element={<CarsNew />} />
-      </Routes>
+      <div className="view-container">
+        <Routes>
+          <Route path="/" exact element={<CarsIndex />} />
+          <Route path="/cars/new" exact element={<CarsNew />} />
+          <Route path="/cars/:id" element={<CarsShow />} />
+        </Routes>
+      </div>
     </Provider>
   </Router>
 );
